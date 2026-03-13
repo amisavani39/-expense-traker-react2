@@ -3,7 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
-const cors = require('cors'); // CORS middleware
+const cors = require('cors'); 
 const connectDB = require('./config/db');
 
 dotenv.config({ path: './config/config.env' });
@@ -13,6 +13,9 @@ connectDB();
 const transactions = require('./routes/transactions');
 
 const app = express();
+
+app.use(cors()); 
+// -------------------------------
 
 app.use(express.json());
 
